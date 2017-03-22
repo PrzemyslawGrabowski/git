@@ -1,0 +1,589 @@
+/* Globalstyles */
+$fonts: 'Open Sans', sans-serif
+$color-paragraf: #C7C7C7
+$color-h1-numbers: #313332
+$color-h4-numbers: #00C7E8
+$color-hover: #00C7E8
+$color-bg-primary: #313332
+$color-bg-footer: #252726
+
+$justify-content: center
+$align-items: center
+
+$desktop-width: 1200px
+$large-width: 992px
+$large-aux-width: 952px
+$medium-width: 768px
+$small-width: 400px
+
+@mixin flex-center($justify-content: center, $align-items: center)
+	display: flex
+	justify-content: $justify-content
+	align-items: $align-items
+
+@mixin clearfix() 
+	&:before,
+	&:after 
+		content: ""
+		display: table
+    
+	&:after 
+		clear: both
+
+@mixin desktop 
+	@media (min-width: $desktop-width)
+		@content
+
+	
+@mixin large 
+	@media (min-width: $medium-width) and (max-width: $large-width - 1px) 
+		@content
+  
+@mixin large-aux 
+	@media (max-width: $large-aux-width - 1px) 
+		@content
+
+@mixin medium
+	@media (min-width: $small-width) and (max-width: $medium-width - 1px) 
+		@content
+	
+	
+@mixin small
+	@media (max-width: $small-width - 1px)
+		@content
+
+* 
+	margin: 0
+	box-sizing: border-box
+	font: 100% $fonts
+
+.container 
+	max-width: 1200px
+	margin: 0px auto
+	@include large
+		max-width: $large-width - 1px
+	
+ 
+/* Grid */
+[class*="col-"] 
+	float: left
+	min-height: 1px
+	padding: 20px
+	@include medium
+		float: none
+		padding: 10px 0
+		width: 100%
+	@include small
+		width: 100%
+
+[class*="col-s-"] 
+	float: left
+	padding: 10px 0
+
+
+.col-1
+	width: 8.33%
+.col-2
+	width: 16.66%
+.col-3 
+	width: 25%
+.col-4
+	width: 33.33%
+.col-5
+	width: 41.66%
+.col-6
+	width: 50%
+.col-7
+	width: 58.33%
+.col-8
+	width: 66.66%
+.col-9
+	width: 75%
+.col-10
+	width: 83.33%
+.col-11
+	width: 91.66%
+.col-12
+	width: 100%
+
+.col-offset-1
+	margin-left: 8.33%
+.col-offset-2
+	margin-left: 16.66%
+.col-offset-3
+	margin-left: 25%
+.col-offset-4
+	margin-left: 33.33%
+.col-offset-5
+	margin-left: 41.66%
+.col-offset-6
+	margin-left: 50%
+.col-offset-7
+	margin-left: 58.33%
+.col-offset-8
+	margin-left: 66.66%
+.col-offset-9
+	margin-left: 75%
+.col-offset-10
+	margin-left: 83.33%
+.col-offset-11
+	margin-left: 91.66%
+	
+@include medium
+	.col-s-1
+		width: 8.33%
+	.col-s-2
+		width: 16.66%	
+	.col-s-3
+		width: 25%
+	.col-s-4
+		width: 33.33%
+	.col-s-5
+		width: 41.66%
+	.col-s-6
+		width: 50%
+	.col-s-7
+		width: 58.33%
+	.col-s-8
+		width: 66.66%
+	.col-s-9
+		width: 75%
+	.col-s-10
+		width: 83.33%
+	.col-s-11
+		width: 91.66%
+	.col-s-12
+		width: 100%
+
+	
+
+.row
+	@include clearfix()
+/* Nav section */
+header 
+	background-color: $color-bg-primary
+	position: fixed
+	width: 100%
+	z-index: 100
+	box-shadow: 0px 2px 47px 0px rgba(0,0,0,0.75)
+	@include medium
+		position: static
+	@include small
+		position: static
+	[class*="col-"]
+		padding: 0
+		@include medium
+			width: 100%
+		@include small
+			width: 100%
+			text-align: center
+	nav 
+		ul 
+			list-style-type: none
+			float: right
+			@include large
+				padding: 0
+			@include medium
+				padding: 0
+				width: 100%	
+			@include small
+				width: 100%
+				padding: 0
+		li	
+			display: inline-block
+			padding: 0 10px	
+			&:hover
+				background: rgba(250, 250, 250, 0.2)
+				a
+					color: $color-hover	
+			@include medium
+				display: block
+				text-align: center
+				width: 100%
+			@include small
+				width: 100%
+				text-align: center
+				padding: 0 10px
+		a 
+			color: white
+			line-height: 85px
+			text-decoration: none
+			text-transform: uppercase
+			@include large
+				line-height: 4rem
+				font-size: 0.8rem
+			@include medium
+				line-height: 40px
+				font-size: 1rem
+			@include small
+				line-height: 40px
+	h1 
+		float: left
+		color: white
+		text-transform: uppercase
+		font-size: 40px
+		line-height: 85px
+		font-weight: bold
+		@include large
+			line-height: 4rem
+			text-align: center
+			font-size: 2rem
+		@include medium
+			float: none
+			line-height: 40px
+			text-align: center
+			font-size: 2rem
+		@include small
+			width: 100%
+			text-align: center
+		&:hover
+			cursor: pointer
+			color: $color-hover
+			text-shadow: 5px 5px 50px rgba(0, 0, 0, 0.6)
+	
+/* Hero section */
+.hero 
+	width: 100%
+	height: 550px
+	background: url("https://images.pexels.com/photos/170/apple-laptop-notebook-notes.jpg?w=1260&h=750&auto=compress&cs=tinysrgb") no-repeat
+	background-size: cover
+	background-position: center center
+	@include flex-center(flex-end)
+
+
+.slogan 
+	max-width: 800px
+	background-color: rgba(0, 0, 0, 0.3)
+	padding: 30px
+	padding-right: 250px
+	@include medium
+		max-width: 400px
+		background-color: rgba(0, 0, 0, 0.3)
+		padding: 30px
+		padding-right: 0
+	@include small
+		width: 90%
+		padding: 20px
+	h1
+		font-weight: 300
+		text-transform: uppercase
+		font-size: 27px
+		color: white
+		&:nth-child(2) 
+			font-weight: 700
+			
+/* Benefits section */
+.benefits
+	margin-top: 50px
+	margin-bottom: 30px
+	text-align: center
+	[class*="col-"] 
+		float: left
+		min-height: 1px
+		padding: 20px
+		@include medium
+			float: none
+			padding: 10px 0
+			width: 100%
+		@include small
+			width: 100%
+	h3    
+		display: block
+		font-size: 1.17em
+		font-weight: bold
+	p
+		padding: 20px 30px
+		color: $color-paragraf
+	a 
+		color: black
+		text-decoration: none
+		text-transform: uppercase
+		&:hover
+			color: #color-hover
+			i.fa
+				background-color: $color-hover
+			h3
+				color: $color-hover
+	i.fa 
+		font-size: 60px
+		color: white
+		padding: 25px
+		background-color: $color-bg-primary
+		border-radius: 10px
+		margin: 20px
+		width: 115px
+		height: 115px
+		@include medium
+			font-size: 2rem
+			color: white
+			padding: 8px
+			background-color: #313332
+			border-radius: 10px
+			margin: 0px
+			width: 50px
+			height: 50px
+		&:hover
+			a
+				background-color: $color-hover
+		
+		
+
+
+/* Featured section */
+.featured 
+	text-align: center
+	h1
+		font-size: 40px
+		font-weight: bold
+		text-transform: uppercase
+		margin-bottom: 10px
+	p 
+		color: $color-paragraf
+	[class*=col-]
+		margin: 30px 0
+		@include small
+			width: 100%
+
+/* Gallery section */
+.gallery 
+	[class*=col-] 
+		float: left
+		min-height: 1px
+		padding: 0
+		@include medium
+			float: none
+			padding: 10px 0
+			width: 100%
+			padding: 0
+		@include small
+			width: 100%
+			padding: 0
+	img 
+		width: 100%
+		display: block
+		height: 290px
+		object-fit: cover
+	.layer 
+		position: absolute
+		z-index: 2
+		width: inherit
+		height: 290px
+		text-align: center
+		line-height: 290px
+		transition-duration: .3s
+		i.fa 
+			visibility: hidden
+			color: #313332
+			padding: 10px
+			margin: 2px
+			font-size: 20px
+			font-weight: 700
+			background-color: white
+			border-radius: 5px
+		&:hover
+			background-color: rgba(0,0,0, 0.6)
+			i.fa
+				visibility: visible
+
+/* Team section*/
+.team 
+	margin: 60px auto
+	[class*=col-] 
+		float: left
+		min-height: 1px
+		padding: 0
+		@include medium
+			padding: 10px 0
+			padding: 0
+		@include small
+			width: 100%
+			padding: 0
+	[class*=col-s-] 
+		float: left
+		padding: 10px 0
+	.img-container 
+		position: relative
+		max-height: 200px
+		max-width: 200px
+		margin: 0 auto
+		&:hover
+			.cover
+				visibility: visible
+				transform: scale(1)
+		@include large
+			margin: 0 10px
+	img 
+		display: block
+		width: 100%
+		height: 200px
+		border-radius: 50%
+		margin: 0
+		object-fit: cover
+	.cover 
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		visibility: hidden
+		width: 100%
+		height: 200px
+		text-align: center
+		color: white
+		background-image: radial-gradient(rgba(49,51,50,0.5), transparent)
+		border-radius: 50%
+		@include flex-center()
+		transform: scale(0)
+		transition: 0.3s
+	h2 
+		text-align: center
+		padding: 20px
+		color: #5D5D5B
+
+
+
+/* Comercial section */
+.comercial 
+	width: 100%
+	margin: 0 auto
+	background-color: $color-bg-primary
+	position: relative
+	padding: 60px 0
+	[class*="col-"] 
+		padding: 0 20px
+	img 
+		max-height: 100%
+		max-width: 100%
+		position: absolute
+		bottom: 0
+		display: block
+		padding-top: 30px
+		@include large-aux
+			display: none
+	h1 
+		color: white
+		text-transform: uppercase
+		font-size: 40px
+		font-weight: bold
+		margin-bottom: 20px
+	p 
+		color: $color-paragraf
+		font-weight: 300
+	@include large-aux
+		.col-m-12 
+			width: 100%
+			margin: 0 auto
+		[class*="col-offset-"] 
+			margin-left: 0
+		@include small
+			padding-top: 15px
+
+/* numbers section*/
+.numbers 
+	background-color: white	
+	margin: auto
+	text-align: center
+	margin: 40px auto
+	[class*=col-] 
+		float: left
+		min-height: 1px
+		padding: 0
+		@include medium
+			padding: 10px 0
+			padding: 0
+		@include small
+			width: 100%
+			padding: 0
+	
+	h1 
+		font-size: 50px
+		font-weight: 900
+		color: $color-h1-numbers
+		font-family: 'Raleway', sans-serif
+	h4 
+		color: $color-h4-numbers
+		margin: 10px
+		text-transform: uppercase
+		font-weight: bold
+
+/* contact section */
+.contact 
+	color: #c7c7c7
+	background-color: $color-bg-primary
+	font-size: 13px
+	font-weight: 300
+	padding: 20px 0
+	@include medium
+		text-align: center
+	@include small
+		text-align: center
+	[class*=col-] 
+		padding: 5px 20px
+		@include medium
+			float: none
+			padding: 10px 0
+			width: 100%
+			padding: 10px 0
+		@include small
+			width: 100%
+			padding: 10px 0
+	
+	
+	h2 
+		display: block
+		position: relative
+		line-height: 1
+		color: white
+		font-weight: 700
+		font-size: 20px
+		text-transform: uppercase
+		@include medium
+			padding-bottom: 15px
+		&:after 
+			content: ""
+			position: absolute
+			height: 10px
+			border-bottom: 2px solid white
+			top: 0
+			width: 80px
+			margin-left: 10px
+			@include medium
+				display: none
+
+.social 
+	display: inline-block
+	font-size: 25px
+	i.fa 
+		width: 30px
+		height: 30px
+		padding: 2.5px
+		color: black
+		background: rgba(250, 250, 250, 0.7)
+		text-align: center
+		cursor: pointer	
+		border-radius: 5px
+		&:hover &:focus
+			background: $color-hover
+			color: white
+			cursor: pointer
+
+
+/* footer section */
+footer 
+	background-color: $color-bg-footer
+	width: 100%
+	.copyrights
+		color: white
+		font-weight: 300
+		text-align: center
+		margin: 0px auto
+		padding: 20px
+	  
+
+
+
+
+
+
+
+

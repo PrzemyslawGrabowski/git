@@ -1,0 +1,30 @@
+{
+  "name": "kodilla-git",
+  "version": "1.0.0",
+  "description": "kodilla grunt task",
+  "main": "index.js",
+  "scripts": {
+    "test": "kodilla-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrzemyslawGrabowski/git.git"
+  },
+  "keywords": [
+    "kodilla",
+    "grunt",
+    "task"
+  ],
+  "author": "Xavier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrzemyslawGrabowski/git/issues"
+  },
+  "homepage": "https://github.com/PrzemyslawGrabowski/git#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-sass": "^2.0.0"
+  }
+}
